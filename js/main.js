@@ -75,8 +75,8 @@ let markerLoc = function(data) {
     this.name = data.name;
     this.position = data.location;
     this.street = '',
-    this.city = '',
-    this.visible = ko.observable(true);
+        this.city = '',
+        this.visible = ko.observable(true);
 
     // Set the colors of the marker icon variable when clicked or not clicked here (nice early Christmas colors)
     let greenIcon = makeMarkerIcon('05B23C');
@@ -185,19 +185,19 @@ let ViewModel = function() {
 
 // Function to set details format of the infowindow
 function infoWindowDetails(marker, street, city, state, postalCode, infowindow) {
-        infowindow.marker = marker;
+    infowindow.marker = marker;
 
-        // Add click event to close out infowindow manually
-        infowindow.addListener('closeclick', function() {
-            infowindow.marker = null;
-        });
+    // Add click event to close out infowindow manually
+    infowindow.addListener('closeclick', function() {
+        infowindow.marker = null;
+    });
 
-        // Set content of the infowindow
-        let infoWindowContents = '<h4>' + marker.name + '</h4>' +
-            '<p>' + street + "<br>" + city + ", " + state + " " + postalCode + "</p>";
+    // Set content of the infowindow
+    let infoWindowContents = '<h4>' + marker.name + '</h4>' +
+        '<p>' + street + "<br>" + city + ", " + state + " " + postalCode + "</p>";
 
-        infowindow.setContent(infoWindowContents);
-        infowindow.open(map, marker);
+    infowindow.setContent(infoWindowContents);
+    infowindow.open(map, marker);
 }
 
 // Will start animation if marker is clicked.

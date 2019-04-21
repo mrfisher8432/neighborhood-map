@@ -11,42 +11,27 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom justify-content-between">
-        <button type="button" id="openPanel" class="btn btn-info">
-            <i class="fas fa-align-left"></i>
-            <span>Toggle Sidebar Search</span>
-        </button>
-        <a class="navbar-brand mr-sm-2">Dining Locations</a>
-    </nav>
-    <div class="container-fluid">
-        <div id="side-panel">
-            <h3 class="sidebar-heading">Dining Locations</h3>
-            <form class="navbar-form navbar-right" role="search">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Filter" name="w" data-bind="textInput: input, valueUpdate: 'afterkeydown'">
-                </div>
-            </form>
-
-            <div class="list-group list-group-flush" data-bind="foreach: locationList">
-                <a href="#" class="dropdown" data-bind="text: name, click: show"></a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom justify-content-between">
+    <a class="navbar-brand mr-sm-2">Dining Locations</a>
+</nav>
+<div class="container-fluid">
+    <div id="map"></div>
+    <div id="list">
+        <form class="navbar-form navbar-right" role="search">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Filter" name="w" data-bind="textInput: input, valueUpdate: 'afterkeydown'">
             </div>
+        </form>
 
+        <div class="list-group list-group-flush" data-bind="foreach: locationList">
+            <a href="#" class="dropdown" data-bind="text: name, click: show"></a>
         </div>
-        <div id="map"></div>
-    </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
-    <script src="js/main.js"></script>
-    <script async defer onerror="googleMapsError()" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAk-E1FCgEn5mFx91N7ITNZIk5nFgs8nVU&callback=initGoogleMap"></script>
-    <script>
-    $('#openPanel').on('click', function() {
-        var side = $('#side-panel');
-        if (side.hasClass("visible")) {
-            side.removeClass('visible').animate({'margin-left':'-300px'});	} else {
-            side.addClass('visible').animate({'margin-left':'0px'});
-        }
-        return false;
-    });
-    </script>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
+<script src="js/main.js"></script>
+<script async defer onerror="googleMapsError()" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAk-E1FCgEn5mFx91N7ITNZIk5nFgs8nVU&callback=initGoogleMap"></script>
 </body>
 </html>
