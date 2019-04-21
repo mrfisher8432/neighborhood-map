@@ -227,7 +227,7 @@ function makeMarkerIcon(markerColor) {
     return markerImage;
 }
 
-// Notifies when any error has occurred
-function googleError() {
+// Google Maps Error
+function googleMapsError() {
     alert('Something went wrong with Google Maps. Reload your page and try again.');
 }
